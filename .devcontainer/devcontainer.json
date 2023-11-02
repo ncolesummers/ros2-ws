@@ -1,0 +1,32 @@
+{
+  "name": "ROS 2 Development Container",
+  "privileged": true,
+  "remoteUser": "colesummers",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "USERNAME": "colesummers"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+		"ms-vscode.cpptools",
+		"ms-vscode.cpptools-themes",
+		"twxs.cmake",
+		"donjayamanne.python-extension-pack",
+		"eamodio.gitlens",
+		"ms-iot.vscode-ros",
+		"GitHub.copilot",
+		"ms-python.black-formatter"
+	]
+    }
+  },
+  "containerEnv": {
+    "ROS_AUTOMATIC_DISCOVERY_RANGE": "LOCALHOST",
+    "ROS_DOMAIN_ID": "42"
+  },
+  "runArgs": ["--net=host"],
+  // source /opt/ros/$ROS_DISTRO/setup.bash
+  "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y"
+}
