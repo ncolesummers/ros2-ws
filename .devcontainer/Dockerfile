@@ -1,4 +1,4 @@
-FROM osrf/ros:iron-desktop
+FROM osrf/ros:humble-desktop
 ARG USERNAME=colesummers
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
